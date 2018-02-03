@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gobins</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <h3>Gobins</h3>
+        </a>
+        <a class="navbar-brand" href="#" data-toggle="modal" data-target="#modalhelp">
+            Ayuda</a>
+
+        <hr>
+        <a class="navbar-brand" href="#" data-toggle="modal" data-target="#modalscore">Puntuación
+        </a>
+    </nav>
+
+    <br>
+    <div class="container" id="contenedor">
+
+        <div class="row border">
+            <div class="col-sm-12">
+
+                <div class="form-group">
+                    <label for="Inputname">Player name</label>
+                    <input type="text" class="form-control" id="login_inputuser" placeholder="User">
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" class="form-control" id="login_inputpassword" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="dificultad">Difficulty</label>
+                    <select name="dificultad" id="dificultad">
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <a href="" data-toggle="modal" data-target="#modalregister">If you do not have an account you can have it by clicking on this link</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" onclick="login()">Play</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--Modal Instrucciones -->
+    <div id="modalhelp" class="modal fade" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Instrucciones</h5>
+
+                </div>
+                <div class="modal-body">
+                    <p>Para jugar utilice las flechas de dirección de su teclado como se puede ver en la siguiente imagen.</p>
+                    <p>
+                        <img src="images/teclas.png" alt="sdsd">
+                    </p>
+                    <p>Para salir pulsamos la tecla "e"</p>
+                    <p>Para reiniciar pulsamos la tecla "r"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal Puntuaciones -->
+
+    <div id="modalscore" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Puntuacion</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="contenedorPuntuaciones"></div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="modalregister" class="modal fade" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Registration Form</h5>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="register()">
+                        <div class="form-group">
+                            <label for="Inputname">Name Player</label>
+                            <input type="text" class="form-control" id="registro_inputuser" required placeholder="User">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control" id="registro_inputpassword" required placeholder="Password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Register</button>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <!-- <script src="js/game.j s"></script> -->
+    <script src="js/login.js"></script>
+</body>
+
+</html>
